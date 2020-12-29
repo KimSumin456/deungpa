@@ -2,6 +2,7 @@
 title: "블로그 소개"
 permalink: /about/
 layout: single
+
 ---
 
 ## https://rato456.github.io/deungpa/ 블로그

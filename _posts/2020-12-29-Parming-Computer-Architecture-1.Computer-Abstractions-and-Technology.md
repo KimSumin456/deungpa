@@ -1,9 +1,11 @@
 ---
 title:  "1. Computer Abstractions and Technology"
 excerpt: "등록금 파먹기 - 컴퓨터 구조 파먹기 (Parming Computer Architecture)"
+toc: true
+toc_sticky: true
 
 categories:
-- 컴퓨터 구조 파먹기
+- 컴퓨터 구조
 tags:
 - 등록금 파먹기
 - 컴퓨터 구조
