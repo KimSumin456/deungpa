@@ -1,5 +1,5 @@
 ---
-title:  "1. Computer Abstractions and Technology"
+title:  "1.Computer Abstractions and Technology"
 excerpt: "등록금 파먹기 - 컴퓨터 구조 파먹기 (Parming Computer Architecture)"
 toc: true
 toc_sticky: true
@@ -12,7 +12,8 @@ tags:
 - Computer Abstractions and Technology
 ---
 
-# 1. Computer Abstractions and Technology
+[작성 중]
+
 ## 1.1 Introduction
 ## 1.2 Eight Great Ideas in Computer Architecture
 ## 1.3 Below Your Program
