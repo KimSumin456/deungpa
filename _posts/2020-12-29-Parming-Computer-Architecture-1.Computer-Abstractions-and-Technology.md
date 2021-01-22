@@ -12,8 +12,6 @@ tags:
 - Computer Abstractions and Technology
 ---
 
-[작성 중]
-
 ## 1.1 Introduction
 * 컴퓨터 혁명(The Computer Revolution)
   * feasible, pervasive 새로운 응용을 실현 가능할 수 있게 되었고, 널리 보급되었다
@@ -58,7 +56,7 @@ tags:
 8. Dependability via Redundancy
 
 ## 1.3 Below Your Program
-* Below Your Program (Below Your Program)
+* 프로그램 아래엔 (Below Your Program)
   * 애플리케이션 소프트웨어
     * High-Leve Language(HLL)로 쓰여짐
   * 시스템 소프트웨어
@@ -162,8 +160,8 @@ tags:
 * CPU 시간 예제 (CPU Time Example)
   * 컴퓨터 A는 2GHz clock, 10s CPU time이다. 새 컴퓨터 B를 디자인 하는데 6s CPU time으로 맞추려고 한다. 컴퓨터 B는 clock을 빠르게 할 수 있지만, 1.2 * clocky cycles이 걸린다. 그러면 컴퓨터 B는 clock을 얼마나 빠르게 해야할까?
     * Clock Rate~B~ = Clock Cycle~B~ / CPU Time~B~ = 1.2 * Clock Cycles~A~ / 6s
-    * Clock Cycles~A~ = CPU Time~A~ * Clock Rate~A~ = 10s * 2GHz = 20 * 10^9
-    * Clock Rate~B~ = 1.2 * 20 * 10^9^ / 6s = 24 * 10^9 / 6s = 4GHz
+    * Clock Cycles~A~ = CPU Time~A~ * Clock Rate~A~ = 10s * 2GHz = 20 * 10^9^
+    * Clock Rate~B~ = 1.2 * 20 * 10^9^ / 6s = 24 * 10^9^ / 6s = 4GHz
     * clock~B~를 4GHz로 해야한다.
 * 인스트럭션 개수와 CPI (Insruction Count and CPI)
   * CPI(Clock cycle Per Instruction) = clock cycle / instruction
@@ -177,16 +175,10 @@ tags:
     * A가 1.2배 빠르다
 * CPI 자세히 알아보기 (CPI in More Detail)
   * 위에선 CPI가 동일하다고 가정했지만 사실 instruction class마다 다르다.
-    * Clock Cycle =
-      $$
-      \sum\limits_{i=1}^{n} {CPI~i~ * IC~i~}
-      $$
+    * Clock Cycle = i = 1부터 n까지 {CPI~i~ * IC~i~}의 합
   * Weighted average CPI
     * Relative frequency를 이용해 더 정확하게 계산할 수 있는 방법
-    * CPI = Clock Cycles / IC = 
-      $$
-      \sum\limits_{i=1}^{n} {CPI~i~ * (IC~i~ / IC)}
-      $$
+    * CPI = Clock Cycles / IC = i = 1부터 n까지 {CPI~i~ * (IC~i~ / IC)}의 합
 * CPI 자세한 예제 (CPI Example)
   * (생략)
   * 이렇게 instruction class마다 CPI가 다르다
@@ -200,12 +192,23 @@ tags:
 
 ## 1.7 The Power Wall
 * 파워 트렌드 (Power Trends)
+  * 예전에는 clock rate(= clock freuqency)를 올림으로써 컴퓨터의 성능을 개선했다.
+  * 그러나 Power Wall 문제 때문에 요즘에는 프로세서의 개수를 늘림으로써 컴퓨터의 성능을 개선한다.
 * 단일프로세서 성능 (Uniprocessor Performance)
-* 파워 축소 (Reducing Power)
+  * Power Wall 문제란 더 이상 전압을 낮출 수 없어 파워가 열이 너무 많이 발생하는 문제이다. 이 문제 때문에 더 이상 단일 프로세서만으로 성능을 올리기 힘들어서, 멀티 프로세서를 활용한다.
+  * Power = Capacitive load * Voltage^2^ * Frequency
+* 파워 줄이기 (Reducing Power)
+  * 원래 CPU보다 capacitive loads는 85%만 갖게끔 하고, voltage와 frequency를 15%씩만 줄여도 50%의 파워를 줄일 수 있다.
 * 멀티프로세서 (Multiprocessors)
+  * 멀티코어 마이크로프로세서: 하나의 CPU 칩 안에 여러 개의 프로세서가 들어있는 것이다
+  * 멀티프로세서를 잘 활용하기 위해선 병렬 프로그래밍이 필요하다
 * 주의: 암달의 법칙 (Pitfall: Amdahl's Law)
+  * Corollary: 핵심 작업을 최적화 하는 게 중요한 거다
 * 최근 컴퓨터 구조의 진화 (Recent Evolution of Computer Architecture)
+  * GPGPU (General Propose GPU): 병렬 작업 처리에 적합
+  * Special purpose HW: 인공지능 등 특수한 작업을 목적으로 맞춤용 하드웨어를 제작해서 사용
 * 컴퓨터 구조의 미래 (Future of Computer Architecture)
+  * 요즘 격변 황금기
 
 ## 1.8 The Sea Change: The Switch from Uniprocessors to Multiprocessors
 ## 1.9 Real Stuff: Benchmarking the Intel Core i7
