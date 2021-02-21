@@ -192,7 +192,7 @@ tags:
 
 ## 1.7 The Power Wall
 * 파워 트렌드 (Power Trends)
-  * 예전에는 clock rate(= clock freuqency)를 올림으로써 컴퓨터의 성능을 개선했다.
+  * 예전에는 clock rate(=clock freuqency)를 올림으로써 컴퓨터의 성능을 개선했다.
   * 그러나 Power Wall 문제 때문에 요즘에는 프로세서의 개수를 늘림으로써 컴퓨터의 성능을 개선한다.
 * 단일프로세서 성능 (Uniprocessor Performance)
   * Power Wall 문제란 더 이상 전압을 낮출 수 없어 파워가 열이 너무 많이 발생하는 문제이다. 이 문제 때문에 더 이상 단일 프로세서만으로 성능을 올리기 힘들어서, 멀티 프로세서를 활용한다.
@@ -203,7 +203,7 @@ tags:
   * 멀티코어 마이크로프로세서: 하나의 CPU 칩 안에 여러 개의 프로세서가 들어있는 것이다
   * 멀티프로세서를 잘 활용하기 위해선 병렬 프로그래밍이 필요하다
 * 주의: 암달의 법칙 (Pitfall: Amdahl's Law)
-  * Corollary: 핵심 작업을 최적화 하는 게 중요한 거다
+  * Corollary: 핵심 작업을 최적화 하는 게 중요한 것이다
 * 최근 컴퓨터 구조의 진화 (Recent Evolution of Computer Architecture)
   * GPGPU (General Propose GPU): 병렬 작업 처리에 적합
   * Special purpose HW: 인공지능 등 특수한 작업을 목적으로 맞춤용 하드웨어를 제작해서 사용
@@ -217,4 +217,11 @@ tags:
 ## 1.12 Historical Perspective and Further Reading
 ## 1.13 Exercises
 
-* Summary
+## Summary
+  * 추상화는 오늘날의 컴퓨터 시스템을 이해하는 데 필수적이다
+    * 하드웨어와 소프트웨어 모두 해당되는 이야기다
+    * ISA는 SW와 HW 사이의 인터페이스이다
+  * 성능 측정은 Execution Time으로 할 수 있다
+  * 무어의 법칙(Moore's law)은 마이크로프로세서(microprocessor) 기술 발달과 IT 산업을 뒷받침하고 있다
+  * 파워 한계(Power limit)은 마이크로프로세서 설계 방식에 극적인 변화를 강제했다
+    * 멀티코어 시스템으로의 전환이라는 극적인 변화
