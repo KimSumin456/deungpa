@@ -1,5 +1,5 @@
 ---
-title:  "11.Synchronization(1)"
+title:  "11. Synchronization (1)"
 excerpt: "등록금 파먹기 - 운영체제 파먹기 (Parming Operating System)"
 toc: true
 toc_sticky: true
