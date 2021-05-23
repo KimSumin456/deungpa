@@ -28,15 +28,15 @@ tags:
 *	Deadlock
 
 <!--12강 Synchronization (2)-->
-## 11.0 Summary of the last class
+## 12.0 Summary of the last class
 * critical section, race condition
 * synchronization
 * mutual exclusion, progress, fairness
 
-## 11.1 Higher-level Synchronization
+## 12.1 Higher-level Synchronization
 Synchronization Primitives
 
-### 11.1.1 Mutex Lock
+### 12.1.1 Mutex Lock
 Mutex Lock
 * 'Mut'ual 'ex'clusive lock
 * 연산
@@ -55,7 +55,7 @@ Spinlock
     * 짧은 critical sections을 보호하기에 적합합니다
     * 반대로 말해 긴 critical sections을 보호하는데 쓰기엔 부적합니다
 
-### 11.1.2 Semaphore
+### 12.1.2 Semaphore
 Semaphore
 * 여러 개의 스레드를 synchronization 하는 방식입니다.
 * 연산
@@ -120,7 +120,7 @@ Problems with Semaphores
 * 세마포어는 변수 차원이 아니라 섹션 차원에서 보호합니다. 배치를 알아서 잘 해야합니다.
 * 기능의 목적이 명확하지 않습니다. 보호가 아니라 제어에 활용되기도 합니다.
 
-### 11.1.3 Monitors
+### 12.1.3 Monitors
 * 프로그래밍 언어 차원에서 공유 데이터 접근 제어를 지원해주는 방식입니다
 
 ```c
@@ -144,16 +144,16 @@ monitor my_monitor {
 * 보기에 좋고, 쓰기에도 편합니다.
 * 그러나 제한적입니다.
 
-### 11.1.4 Condition Variables
+### 12.1.4 Condition Variables
 * 이벤트를 기다림으로써 스레드가 제어되는 방식입니다. 섹션 차원이 아닌 흐름 차원에서 제어합니다.
 * 연산
   * `wait()`: `signal()`을 할 때까지 기다립니다
   * `signal()`: `wait()` 하고있는 스레드들 중 하나를 깨웁니다
   * `boradcast()`: `wait()` 하고있는 스레드들 전부를 깨웁니다
 
-### 11.1.5 Pthreads Synchronization
+### 12.1.5 Pthreads Synchronization
 * 강의 노트 참고
 
-## 11.3 Deadlock
+## 12.2 Deadlock
 * 두 개 이상의 태스크가 하나씩만 실행할 수 있는 이벤트를 서로 무한정 기다리게 되는 상황입니다.
 * Synchronization을 잘못하면 발생할 수 있습니다

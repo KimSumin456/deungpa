@@ -23,7 +23,7 @@ tags:
 * Synchronization in Linux
 
 <!--13강 Synchronization (3)-->
-## 11.0 Recap the last session
+## 13.0 Recap the last session
 * Synchronization primitives
   * Mutes
   * Semaphore
@@ -32,7 +32,7 @@ tags:
   * Conditional variable
 * Deadlock
 
-## 11.1 Compiler and Synchronization
+## 13.1 Compiler and Synchronization
 Compiler and Synchronization
 * 컴파일러의 최적화로 인해 Synchronization에 문제가 발생할 수 있습니다
 
@@ -83,12 +83,12 @@ Memory barrier (barrier)
     ```
 * memory barrier (barrier)는 컴파일러나 프로세서에게 순서를 재배치하지 않도록 강제합니다. 이를 통해 문제를 해결할 수 있습니다.
 
-## 11.2 Classical Problems of Synchronization
-* 11.2.1 Bounded Buffer Problem
-* 11.2.2 Readers-Writers Problem
-* 11.2.3 Dining Philosophers Problem
+## 13.2 Classical Problems of Synchronization
+* 13.2.1 Bounded Buffer Problem
+* 13.2.2 Readers-Writers Problem
+* 13.2.3 Dining Philosophers Problem
 
-### 11.2.1 Bounded Buffer Problem
+### 13.2.1 Bounded Buffer Problem
 Bounded Buffer Problem
 * Bounded buffer problem은 producer/consumer problem의 일부입니다.
 * Producer/consumer problem
@@ -236,7 +236,7 @@ Bounded Buffer in Shared Memory (Success)
     ```
 * This is working.
 
-### 11.2.2 Readers-Writers Problem
+### 13.2.2 Readers-Writers Problem
 Readers-Writers Problem
 * 공유 리소스를 reader와 writer가 같이 사용하거나, multiple writers가 사용할 때 발생하는 문제입니다.
   * reader는 multiple reader여도 문제가 발생하지 않습니다!
@@ -280,7 +280,7 @@ Readers-Writers Problem Solution
   * reader가 자주 도착하면 writer의 starvation이 발생할 수 있습니다.
     * writer가 기다리고 있을 때 reader의 추가 입장은 막는 방식으로 해결할 수 있을 것입니다.
 
-### 11.2.3 Dining Philosophers Problem
+### 13.2.3 Dining Philosophers Problem
 * 철학자들이 생각을 하다가 오른손을 안에 넣고 왼손을 안에 놓고 스파게티를 힘껏 먹고 오른손을 밖에 내고 왼손을 밖에 내고를 반복합니다.
  이때 철학자들이 모두 동시에 왼쪽 포크를 집는 순간 ~~벤젠 마냥~~ 데드락이 발생하는 문제입니다.
 * The original implementation
@@ -347,7 +347,7 @@ Readers-Writers Problem Solution
     }
     ```
 
-## 11.3 Preemptive vs. Non-preemptive in Kernel
+## 13.3 Preemptive vs. Non-preemptive in Kernel
 Preemptive vs. Non-preemptive in Kernel
 * Preemptive kernel
   * 커널 모드로 실행되는 동안 프로세스를 미리 준비할 수 있습니다
@@ -357,7 +357,7 @@ Preemptive vs. Non-preemptive in Kernel
   * 구현이 쉽습니다
   * response가 낮습니다
 
-## 11.4 Synchronization in Linux
+## 13.4 Synchronization in Linux
 * 예전에는
   * Big Kernel Lock (BKL)이 전체 커널을 보호했습니다.
   * 짧은 critical sections을 실행하는 동안 인터럽트, 시스템 콜 등을 일체 사용할 수 없었습니다.

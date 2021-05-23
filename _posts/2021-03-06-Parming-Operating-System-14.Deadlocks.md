@@ -28,7 +28,7 @@ tags:
   * Ignoring Deadlock
 
 <!--14강 Synchronization (3)-->
-## 11.1 Deadlock
+## 14.1 Deadlock
 Deadlock
 * 데드락(Deadlock): 두 개 이상의 작업(task)이 서로 상대방의 작업이 끝나기 만을 기다리면서 아무것도 완료되지 못하는 상태를 가리킵니다. 프로세스가 잘못된 순서로 리소스를 가져갈 때 발생합니다.
   * [교착상태 - 위키백과](https://ko.wikipedia.org/wiki/%EA%B5%90%EC%B0%A9_%EC%83%81%ED%83%9C)
@@ -64,7 +64,7 @@ Conditions for Deadlock 사례 분석
 * -1. 사거리 도로
 * -2. Dining Philosophers Problem
 
-## 11.2 Strategies for Handling Deadlocks
+## 14.2 Strategies for Handling Deadlocks
 Deadlocks never happen: 데드락이 아예 발생하지 않도록 하기
 
 1. Deadlock prevention -> 11.2.1
@@ -79,7 +79,7 @@ Deadlocks may happen: 데드락이 발생하면 수습하기
 4. Just ignore the problem altogether -> 11.2.4
 * 문제를 완전히 무시합니다
 
-### 11.2.1 Deadlock Prevention
+### 14.2.1 Deadlock Prevention
 * Deadlock Prevention: 데드락은 필수적인 conditions for deadlock 네 가지를 모두 만족할 때만 발생합니다. 이를 반대로 생각해 한 가지 조건을 불만족시켜 데드락을 예방합니다.
 1. Mutual exclusion 불만족시키기
 * 리소스 고유의 특징이라 어떻게 할 수 없습니다
@@ -98,7 +98,7 @@ Deadlock Prevention 예제 - Circular wait 불만족 시키기
 2. overlap lock acquistion and release
 * 강의노트 참고
 
-### 11.2.2 Deadlock Avoidance
+### 14.2.2 Deadlock Avoidance
 * Deadlock Avoidance: safe state가 예상될 때만 리소스를 할당해줍니다.
 
 * safe state: safe sequence 경우의 수가 한 가지라도 있는 상태를 말합니다.
@@ -130,12 +130,12 @@ B. Banker’s Algorithm
 Banker’s Algorithm Example
 * 강의노트 참고
 
-### 11.2.3 Deadlock Recovery
+### 14.2.3 Deadlock Recovery
 * Deadlock Recovery: 데드락이 발생하고 나면 수습하기
 * 데드락과 연관된 모든 것을 하나씩 죽이거나, 모두 죽이거나 할 수 있습니다.
 * 그러나 실질적으로 잘 쓰기 어렵습니다.
 
-### 11.2.4 Ignoring Deadlock
+### 14.2.4 Ignoring Deadlock
 * Ignoring Deadlock: 다 쌩 까기
 * The "Ostrich" algorithm
 * **모든 현대 운영체제가 이 접근 방식을 사용하고 있습니다 (일부 중요한 리소스 제외)**
