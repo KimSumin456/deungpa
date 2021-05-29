@@ -59,7 +59,7 @@ Page Table Entry (PTE) *-> 16.2.3 PTE*
 
 ### 16.2.2 Address Translation, Address Translation Example
 * 강의 참고
-* (조건) Virtual address가 4GB, Physical address가 1BM, Page size가 4KB일 때,
+* (조건) Virtual address가 4GB, Physical address가 1MB, Page size가 4KB일 때,
 * (문제) VPN, PFN, Offset의 길이(bit 개수)와 Page table의 size를 구할 수 있습니다
 * Virtual address: 4GB = 2<sup>2</sup> x 2<sup>30</sup> = 2<sup>32</sup> 이므로 32bit입니다
 * Physical address: 1MB = 2<sup>0</sup> x 2<sup>20</sup> = 2<sup>20</sup> 이므로 20bit입니다
