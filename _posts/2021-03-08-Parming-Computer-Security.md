@@ -1,5 +1,5 @@
 ---
-title:  "정보보호 (Computer Security)"
+title:  "[정보보호] 정보보호 (Computer Security)"
 excerpt: "등록금 파먹기 - 정보보호 파먹기 (Parming Computer Security)"
 
 categories:

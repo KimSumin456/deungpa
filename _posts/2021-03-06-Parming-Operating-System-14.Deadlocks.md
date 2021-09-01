@@ -58,7 +58,7 @@ Deadlock Problem
 3. No preemption
 * 리소스는 작업을 완료한 뒤 자발적으로만 release된다
 4. Circular wait
-* waithing tasks들 간의 릴레이션(relation)에 cycle이 발생한다
+* waiting tasks들 간의 릴레이션(relation)에 cycle이 발생한다
 
 Conditions for Deadlock 사례 분석
 * -1. 사거리 도로
@@ -88,14 +88,14 @@ Deadlocks may happen: 데드락이 발생하면 수습하기
   * 장점: 구현이 쉽습니다
   * 단점: 효율이 낮습니다, starvation이 발생 가능합니다
 3. No preemption 불만족시키기
-* 역시 리소스 고유의 특지이라 어떻게 할 수 없습니다
+* 역시 리소스 고유의 특징이라 어떻게 할 수 없습니다
 4. Circular wait 불만족시키기
 * 모든 리소스 타입에 대해 **total ordering**를 매깁니다. 매겨진 숫자의 오름차순대로만 리소스를 가져갈 수 있게 합니다.
-* 이렇게 하면 역방향의 waiting이 절대 발생하지 않습니다
+* 이렇게 하면 역방향의 waiting으로 인한 cycle이 절대 발생하지 않습니다
 
 Deadlock Prevention 예제 - Circular wait 불만족 시키기
-1. two-phase locking (2PL)
-2. overlap lock acquistion and release
+1. two-phase locking (2PL)은 acquire와 release가 단계를 나누어 이루어지는 방식입니다.
+2. overlap lock acquistion and release는 acquire release가 함께 이루어지는 방식입니다.
 * 강의노트 참고
 
 ### 14.2.2 Deadlock Avoidance
@@ -112,13 +112,13 @@ C. unsafe state (Deadlock Avoidance 실패 예제)
 
 Avoidance Algorithms
 * 문제점
-  * 사실 프로세스가 리소스 몇 개를 더 필요로 할 지 알 수 없습니다
+  * 사실 프로세스가 리소스 몇 개를 더 필요로 할 지 미래의 정보를 알 수 없습니다
   * 리소스 효율성이 떨어집니다
-  * 'safe sequence'를 어떻게 찾아야하는 지 생각해보아야 합니다
+  * 컴퓨터가 'safe sequence'를 어떻게 찾아야하는 지 생각해보아야 합니다
 
 A. Resource-Allocation Graph
-* 버택스(vertex)는 프로세스와 리소스 타입 및 리소스 개수를, 엣지(edge)는 request edge, assignment edge, claim edge를 나타냅니다.
-* 만약 request edge와 assignment edge가 cycle을 만들며 데드락이 발생하는 것입니다.
+* 버택스(vertex)는 프로세스와 리소스 타입 및 리소스 개수를, 엣지(edge)는 request edge(요청한 엣지), assignment edge(요청 승인된 엣지), claim edge(요청할 엣지)를 나타냅니다.
+* 만약 request edge와 assignment edge가 cycle을 만들면 데드락이 발생하는 것입니다.
 
 Resource-Allocation Graph Example
 * 강의노트 참고

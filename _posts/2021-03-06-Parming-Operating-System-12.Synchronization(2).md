@@ -104,10 +104,10 @@ void signal(struct semaphore *sem) {
   }
 }
 ```
-* This is not working (race condition이 발생합니다)
+* This is not working (sem->S 값에서 race condition이 발생합니다)
 
 Types of Semaphores
-* Binary semaphore (≒ mutest)
+* Binary semaphore (≒ mutex)
   * S의 초기화 값이 1인 세마포어
   * mutual exclusive를 보장합니다
 * Counting semaphore
@@ -116,7 +116,7 @@ Types of Semaphores
   * **하지만 crticial section 내에서 N개의 스레드들끼리의 mutual exclusive는 보장하지 않습니다**
 
 Problems with Semaphores
-* 일반인들에게 구조적으로 안전성을 보장해주지 못합니다. SW Engineer 관점에서 별로 좋지 않습니다다.
+* 일반인들에게 구조적으로 안전성을 보장해주지 못합니다. SW Engineer 관점에서 별로 좋지 않습니다.
 * 세마포어는 변수 차원이 아니라 섹션 차원에서 보호합니다. 배치를 알아서 잘 해야합니다.
 * 기능의 목적이 명확하지 않습니다. 보호가 아니라 제어에 활용되기도 합니다.
 
@@ -149,11 +149,16 @@ monitor my_monitor {
 * 연산
   * `wait()`: `signal()`을 할 때까지 기다립니다
   * `signal()`: `wait()` 하고있는 스레드들 중 하나를 깨웁니다
+    * `signal()`의 유실을 조심해야 합니다.
   * `boradcast()`: `wait()` 하고있는 스레드들 전부를 깨웁니다
 
 ### 12.1.5 Pthreads Synchronization
+Pthreads
+* Pthreads는 스레드  synchronization 관련 라이브러리입니다.
+
+Pthreads Example
 * 강의 노트 참고
 
 ## 12.2 Deadlock
 * 두 개 이상의 태스크가 하나씩만 실행할 수 있는 이벤트를 서로 무한정 기다리게 되는 상황입니다.
-* Synchronization을 잘못하면 발생할 수 있습니다
+* synchronization을 잘못하면 발생할 수 있습니다

@@ -1,5 +1,5 @@
 ---
-title:  "1.Introduction"
+title:  "[운영체제] 1. Introduction"
 excerpt: "등록금 파먹기 - 운영체제 파먹기 (Parming Operating System)"
 toc: true
 toc_sticky: true

@@ -111,14 +111,14 @@ Allocation Strategies
   * worst fit: 가장 큰 hole을 할당하는 방식입니다.
     * best fit을 썼을 때 external fragmentation이 빈번하게 발생한다고 알려져 있습니다
     * **worst fit을 썼을 때 external fragmentation이 가장 적게 발생한다고 알려져 있습니다**
-* N번의 블록을 할당했을 때 0.5 N번의 external fragmentation이 발생한다고 알려져있습니다
+* first fit policy를 썼을 때 N번의 블록을 할당하면 0.5 N번의 external fragmentation이 발생한다고 알려져있습니다
 
 ### 15.3.3 Segmentation
 Segmentation
 * **segmentation**은 프로세스의 주소 공간을 logical segments로 나누고, 그 segment들을 adjacent(not contiguous)하게 할당하는 방식입니다.
   * variable partition의 확장판입니다
   * segemnt에는 code, data, stack, heap, ... 등이 있습니다
-* 메모리를 **a collection of variable-sized sesgments**라고 볼 수 있습니다
+* 메모리를 **a collection of variable-sized segments**라고 볼 수 있습니다
 
 Segment ID는 명시적(explicit) 또는 암시적(implicit)으로 표현할 수 있습니다
 * explicit: <segment ID, offset>

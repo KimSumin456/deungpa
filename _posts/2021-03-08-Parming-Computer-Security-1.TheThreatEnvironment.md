@@ -1,5 +1,5 @@
 ---
-title:  "[정보보호]1.The Threat Environment"
+title:  "[정보보호] 1. The Threat Environment"
 excerpt: "등록금 파먹기 - 정보보호 파먹기 (Parming Computer Security)"
 toc: true
 toc_sticky: true

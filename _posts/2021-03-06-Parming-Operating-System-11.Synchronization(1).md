@@ -37,7 +37,7 @@ The Classic Example
 * Synchronization Issue in 은행 예제
 
 An Example from a Real Program
-* 코드 한 줄도 인스트럭션 여러 줄이 되어 Synchronization Issue가 발생할 수 있습니다
+* 코드 한 줄이라도도 인스트럭션 여러 줄이 되어 Synchronization Issue가 발생할 수 있습니다
 
 ## 11.2 Synchronization Problem
 Synchronization Problem
@@ -50,7 +50,7 @@ Synchronization in Operating Systems
 * 운영체제는 공유 리소스로 가득 차 있고, concurrent하게 race condition이 발생할 수 있는 최적의 조건을 가지고 있습니다
 
 Critical Section
-* **critical section** (or critical region)이란 공유 리소스에 접근하는 코드 조각입니다
+* **critical section** (or critical region)이란 공유 리소스에 접근하는 코드 부분입니다
 * 정확한 실행을 위해 critical section에서 **mutual exclusion**을 보장해야 합니다
   * **mutual exclusion**이란 한 번에 한 스레드만 critical section에서 실행할 수 있어야 한다는 성질(property)입니다
   * 다른 스레드들은 critical section의 입구에서 대기해야 하고, 앞의 한 스레드가 critical section을 떠났을 때 다른 한 스레드가 입장할 수 있습니다
@@ -68,9 +68,9 @@ Requirements for Locks
 1. Correctness
 * **Mutual exclusion**: 한 번에 하나의 스레드만 critical section에 있어야 합니다
 * **Progress**: 만약 여러 개의 스레드들이 같은 critical section에 들어가고 싶어한다면, 반드시 한 스레드는 입장을 할 수 있어야 합니다 (양보만 하다 아무도 안 들어가면 안 됩니다)
-* **Bounded wating**: starvation-free(starvation으로부터 자유로워야 합니다. stravation이 발생하면 안 됩니다.); 대기 중인 스레드는 언젠가는 차례가 와서 들어갈 수 있어야 합니다
+* **Bounded wating**: starvation-free(starvation으로부터 자유로워야 합니다. stravation이 발생하면 안 됩니다.); 대기 중인 스레드는 언젠가는 자기 차례가 와서 들어갈 수 있어야 합니다
 2. Fairness
-* 각 스레드들은 lock을 획득하기 위한 기회를 공저앟게 얻어야 합니다
+* 각 스레드들은 lock을 획득하기 위한 기회를 공정하게 얻어야 합니다
 3. Performance
 * lock의 time overhead가 너무 크면 안 됩니다.
 
@@ -129,7 +129,7 @@ void release(int my_id) {
 ```
 
 * Does this work? **No.**
-  * T1, T2가 동시에 acquire하려고 하면 progress property가 보장되지 않습니다
+  * T1, T2가 동시에 acquire를 하면 progress property가 보장되지 않습니다
 
 ### 11.3.3 Peterson's Algorithm
 : Spinlock 구현 3 - Software-only Algorithm 개선 (Particially Success)
@@ -155,6 +155,8 @@ void release(int my_id) {
 
 * 2개의 태스크에 대해서만 critical section 문제를 해결할 수 있습니다
 * 가정이 많아서 적용할 수 있는 상황이 제한적입니다
+  - load와 store 인스트럭션이 atomic하지 않은 경우도 많습니다
+  - x86을 제외한 일부 아키텍처에서는 my_id 값을 동시에 대입하면 0도 1도 아닌 값을 가지게 되기도 합니다
 
 ### 11.3.4 Disabling Interrupts
 Synchronization Hardware
@@ -167,10 +169,10 @@ Synchronization Hardware
 ---
 
 Disabling Interrupts
-: critical section 들어갈 땐 timer inttrupt틀 꺼버리자
+: critical section에 들어갈 땐 timer interrupt를 꺼버리자
 
-* context switching(timer inttreupt -> scheduler -> preemption)이 원인었으니, crticial section들어 갈 땐 timer inttrupt를 꺼버림으로써 해결하자
-* critical section을 acomically 실행함으로써 mutual exclusiveness를 간접적으로 보장합니다
+* context switching(timer interrupt -> scheduler -> preemption)이 원인었으니, crticial section에 들어 갈 땐 timer interrupt를 꺼버림으로써 해결하자
+* critical section을 atomically 실행함으로써 mutual exclusiveness를 간접적으로 보장합니다
   * atomically(atomic하게)란: all or nothing. crticial section의 처음부터 끝까지를 실행 할 거면 하나가 한 번에 다 하거나, 않을 거면 아예 시작하지도 말거나
 
 * 문제점
@@ -190,17 +192,17 @@ Atomic instruction
 Test-And-Set instruction
 * 새로운 값(new value)으로 업데이트 하는 동시에 메모리에 있던 이전 값(old value)을 반환합니다
 * 한국어, 영어, 프랑스어가 아니라 C언어로 이 인스트럭션의 기능(≠동작)을 설명하자면 다음과 같습니다.
-* ```
+* ```c
   int TestAndSet(int *v, int new) {
-  int old = *v;
-  *v = new;
+    int old = *v;
+    *v = new;
 
-  return old;
+    return old;
   } 
   ```
 
 Using Test-And-Set
-: Spinlocke 구현 4 (Sucess)
+: Spinlock 구현 4 (Sucess)
 
 ```c
 struct lock { int held = 0; }

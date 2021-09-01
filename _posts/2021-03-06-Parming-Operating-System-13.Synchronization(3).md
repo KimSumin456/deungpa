@@ -25,9 +25,9 @@ tags:
 <!--13강 Synchronization (3)-->
 ## 13.0 Recap the last session
 * Synchronization primitives
-  * Mutes
+  * Mutex
   * Semaphore
-  * Busy-waithing vs. blocking
+  * Busy-waithing vs. Blocking
   * Monitor
   * Conditional variable
 * Deadlock
@@ -78,8 +78,7 @@ Memory barrier (barrier)
   * 어셈블리어 (절망편)
     ```bash <!--걍 색깔 이뻐서 이거 해놓음-->
     node = list->tail;
-    assert(node->true == true);
-    node->valid = true;
+    assert(node->valid == true);
     ```
 * memory barrier (barrier)는 컴파일러나 프로세서에게 순서를 재배치하지 않도록 강제합니다. 이를 통해 문제를 해결할 수 있습니다.
 
@@ -126,11 +125,11 @@ Bounded Buffer in Shared Memory (Failed)
     }
     ```
 * This is not working.
-  * count와 in, out의 synchronization이 이루어지지 않습니다.
+  * Producer(또는 Consumer)에 2개의 스레드가 동시에 들어올 경우 count의 mutual exclusion이 보장되지 않아 synchronization이 이루어지지 않습니다.
 
 Bounded Buffer in Shared Memory (Partial Success)
 * Implmentation with mutex
-  * ```
+  * ```c
     Mutex mutex;
     int count;
     struct item buffer[N];
@@ -168,9 +167,9 @@ Bounded Buffer in Shared Memory (Partial Success)
       mutex.unlock();
     }
     ```
-  * This is not working.
-    * Producer와 Consumer가 count에 동시접근할 때 발생할 수 있는 race condition 문제는 해결했습니다
-    * 하지만 여러 Producers들이 in에, 여러 Consumers이 out에 동시접근헐 때 발생할 수 있는 race condition 문제는 해결하지 못 했습니다.
+  
+  * This is working.
+    * 여러 Producers(또는 Consumers)들이 count, in, out에 동시접근할 때 발생할 수 있는 race condition 문제를 해결했습니다
 
 * Implementation with semaphores
   * ```c
@@ -199,6 +198,10 @@ Bounded Buffer in Shared Memory (Partial Success)
       signal(&full);
     }
     ```
+  
+  * This is not working.
+    * Producer와 Consumer가 count에 동시접근할 때 발생할 수 있는 race condition 문제는 해결했습니다
+    * 하지만 여러 Producers들이 in에, 여러 Consumers이 out에 동시접근할 때 발생할 수 있는 race condition 문제는 해결하지 못 했습니다.
 
 Bounded Buffer in Shared Memory (Success)
 * Implementation with semaphores
@@ -238,8 +241,10 @@ Bounded Buffer in Shared Memory (Success)
 
 ### 13.2.2 Readers-Writers Problem
 Readers-Writers Problem
-* 공유 리소스를 reader와 writer가 같이 사용하거나, multiple writers가 사용할 때 발생하는 문제입니다.
+* reader와 writer가 공유 리소스를 동시에 사용하거나, multiple writers가 사용할 때 발생하는 문제입니다.
+  * 한 writer가 값을 수정하는 동안 이상한 값을 읽어가거나 같이 수정하는 문제가 발생하기 때문입니다.
   * reader는 multiple reader여도 문제가 발생하지 않습니다!
+* 세마포어를 마구 사용해 reader와 writer, writer와 wirter의 관계를 exclusive하게 만들어야합니다.
 
 Readers-Writers Problem Solution
 * Implementation with semaphores
@@ -312,7 +317,7 @@ Readers-Writers Problem Solution
     ```
 
 * A deadlock-free solution
-* circular dependancy를 없애면 됩니다.
+  * circular dependancy를 없애면 됩니다.
 * 코드로 보면 다음과 같습니다.
   * ```c
     // initialized to 1

@@ -1,5 +1,5 @@
 ---
-title:  "운영체제 (Operating System)"
+title:  "[운영체제] 운영체제 (Operating System)"
 excerpt: "등록금 파먹기 - 운영체제 파먹기 (Parming Operating System)"
 
 categories:
